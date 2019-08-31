@@ -4,5 +4,5 @@ Tested on Win XP SP3 x86 only.
 ## Usage:
 
 1. Edit `rhost`, `rport` and `ftpuser` in `freeFTPd.py`
-2. Replace shellcode.
+2. Replace shellcode `buf`
 3. Run with `python freeFTPd.py`
